@@ -22,7 +22,6 @@ public class BookController {
 		this.bookService = bookService;
 	}
 
-	// ✅ Display all books
 	@GetMapping("/books")
 	public ModelAndView getBooks() {
 		List<BookEntity> allBooks = bookService.getAllBooks();
