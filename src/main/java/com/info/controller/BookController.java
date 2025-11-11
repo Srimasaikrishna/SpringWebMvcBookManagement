@@ -31,7 +31,7 @@ public class BookController {
 		return mav;
 	}
 
-	// ✅ Show add book form
+
 	@GetMapping("/addbook")
 	public ModelAndView showAddBookForm() {
 		ModelAndView mav = new ModelAndView("save");
@@ -39,21 +39,20 @@ public class BookController {
 		return mav;
 	}
 
-	// ✅ Save new book
+
 	@PostMapping("/post")
 	public ModelAndView saveBook(@ModelAttribute("book") BookEntity book) {
 		bookService.saveBook(book);
 		return new ModelAndView("redirect:/books");
 	}
 
-	// ✅ Delete book
+
 	@GetMapping("/delete/{id}")
 	public ModelAndView deleteBook(@PathVariable Integer id) {
 		bookService.deleteBookById(id);
 		return new ModelAndView("redirect:/books");
 	}
-
-	// ✅ Show edit book form
+	
 	@GetMapping("/edit/{id}")
 	public ModelAndView editBook(@PathVariable Integer id) {
 		Optional<BookEntity> bookOpt = bookService.getBookById(id);
@@ -62,7 +61,7 @@ public class BookController {
 		return mav;
 	}
 
-	// ✅ Update book details
+	
 	@PostMapping("/update")
 	public ModelAndView updateBook(@ModelAttribute("book") BookEntity book) {
 		bookService.saveBook(book); // save() will update if ID already exists
